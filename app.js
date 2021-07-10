@@ -89,3 +89,25 @@ alt="${description}"/>
 );
 
 refs.gallery.insertAdjacentHTML("afterbegin", images);
+refs.gallery.addEventListener("click", (evt) => {
+  evt.preventDefault();
+  const target = evt.target;
+
+  if (evt.target.nodeName !== "IMG") {
+    return;
+  }
+
+  onGalleryBoxClick(target);
+});
+
+function onGalleryBoxClick(target) {
+  refs.modal.classList.add("is-open");
+  window.addEventListener("keydown", onEscapeClose);
+
+  galleryItems.forEach(({ preview, original, description }) => {
+    if (target.src === preview) {
+      refs.imageBoxModal.src = `${original}`;
+      refs.imageBoxModal.alt = `${description}`;
+    }
+  });
+}
