@@ -87,3 +87,5 @@ alt="${description}"/>
 </li>`,
   ""
 );
+
+refs.gallery.insertAdjacentHTML("afterbegin", images);
