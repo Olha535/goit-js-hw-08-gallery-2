@@ -111,3 +111,18 @@ function onGalleryBoxClick(target) {
     }
   });
 }
+
+function onGalleryBoxClose() {
+  refs.modal.classList.remove("is-open");
+  refs.imageBoxModal.src = "";
+  refs.imageBoxModal.alt = "";
+}
+
+refs.closeBoxModal.addEventListener("click", onGalleryBoxClose);
+refs.overlay.addEventListener("click", onGalleryBoxClose);
+
+function onEscapeClose(evt) {
+  if (evt.key === "Escape") {
+    onGalleryBoxClose();
+  }
+}
