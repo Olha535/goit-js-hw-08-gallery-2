@@ -63,3 +63,27 @@ const galleryItems = [
     description: 'Lighthouse Coast Sea',
   },
 ];
+
+
+const refs = {
+  gallery: document.querySelector(".js-gallery"),
+  modal: document.querySelector(".js-lightbox"),
+  closeBoxModal: document.querySelector('[data-action="close-lightbox"]'),
+  overlay: document.querySelector(".lightbox__overlay"),
+  imageBoxModal: document.querySelector(".lightbox__image"),
+};
+
+const images = galleryItems.reduce(
+  (str, { preview, original, description }) =>
+    str +
+    `<li class="gallery__item">
+<a class="gallery__link"
+href=${original}>
+<img class="gallery__image"
+src="${preview}"
+data-source="${original}"
+alt="${description}"/>
+</a>
+</li>`,
+  ""
+);
